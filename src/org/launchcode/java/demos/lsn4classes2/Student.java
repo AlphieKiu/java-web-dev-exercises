@@ -35,11 +35,11 @@ public class Student {
 
      //TODO: Uncomment and complete the getGradeLevel method here:
     public String getGradeLevel() {
-         if (numberOfCredits < 30) {
+         if (this.numberOfCredits < 30) {
             return this.gradeLevel = "Freshman";
-         } else if (numberOfCredits < 60) {
+         } else if (this.numberOfCredits < 60) {
              return this.gradeLevel = "Sophomore";
-         } else if (numberOfCredits < 90) {
+         } else if (this.numberOfCredits < 90) {
              return this.gradeLevel = "Junior";
          } else {
              return this.gradeLevel = "Senior";
@@ -50,9 +50,9 @@ public class Student {
     // TODO: Complete the addGrade method.
     public void addGrade(int courseCredits, double grade) {
         double qualityScore = this.gpa* this.numberOfCredits;
-        double newQualityScore = qualityScore+(courseCredits*grade);
+        qualityScore = qualityScore+(courseCredits*grade);
         this.numberOfCredits = this.numberOfCredits+courseCredits;
-        this.gpa = newQualityScore/(this.numberOfCredits);
+        this.gpa = qualityScore/(this.numberOfCredits);
     }
 
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
@@ -80,12 +80,8 @@ public class Student {
             return false;
         }
         Student student = (Student) o;
-        //unsure of line 84-88
-        return studentId == student.studentId &&
-                numberOfCredits == student.numberOfCredits &&
-                Double.compare(student.gpa, gpa) == 0 &&
-                Objects.equals(name, student.name) &&
-                Objects.equals(gradeLevel, student.gradeLevel);
+
+        return studentId == student.studentId;
     }
 
 

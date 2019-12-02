@@ -27,7 +27,7 @@ public class Course {
             return true;
         }
         if (o == null) {
-            return false
+            return false;
         }
         if (getClass() != o.getClass()) {
             return false;
